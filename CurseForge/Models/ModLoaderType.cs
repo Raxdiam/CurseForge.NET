@@ -1,4 +1,4 @@
-namespace CurseForge.Models.Mods;
+namespace CurseForge.Models;
 
 public enum ModLoaderType
 {

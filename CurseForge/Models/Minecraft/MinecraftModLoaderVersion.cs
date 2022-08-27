@@ -1,5 +1,4 @@
 ﻿using CurseForge.Models.Games;
-using CurseForge.Models.Mods;
 using System;
 
 namespace CurseForge.Models.Minecraft;

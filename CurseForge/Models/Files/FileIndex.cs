@@ -1,6 +1,4 @@
-﻿using CurseForge.Models.Mods;
-
-namespace CurseForge.Models.Files;
+﻿namespace CurseForge.Models.Files;
 
 /// <summary>
 /// <see href="https://docs.curseforge.com/#tocS_FileIndex" />
