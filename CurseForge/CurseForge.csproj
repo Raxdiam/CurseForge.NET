@@ -1,13 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>netstandard2.1;net6.0</TargetFrameworks>
     <Nullable>disable</Nullable>
     <LangVersion>10</LangVersion>
+    <PackageId>CurseForge.NET</PackageId>
+    <Authors>Raxdiam, CurseForge</Authors>
+    <Product>$(PackageId)</Product>
+    <Description>A simple C# .NET implementation of the CurseForge API</Description>
+    <PackageProjectUrl>https://github.com/Raxdiam/CurseForge.NET</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Raxdiam/CurseForge.NET</RepositoryUrl>
+    <PackageTags>curseforge;curseforge-api;api;api-client;minecraft</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="CurseForge.csproj.DotSettings" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+	<EmbeddedResource Include="..\LICENSE">
+	  <Pack>True</Pack>
+	  <PackagePath>\</PackagePath>
+	</EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
