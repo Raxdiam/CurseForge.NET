@@ -61,9 +61,23 @@ public partial class CurseForge
     /// <summary>
     /// Get a list of mods.
     /// </summary>
+    /// <param name="body">Request body containing an array of mod IDs.</param>
+    public async Task<CurseResponse<List<Mod>>> GetMods(GetModsByIdsListRequestBody body) => await Post<CurseResponse<List<Mod>>>("/v1/mods", body);
+
+    /// <summary>
+    /// Get a list of mods.
+    /// </summary>
     /// <param name="modIds">An array of mod IDs.</param>
-    public async Task<CurseResponse<List<Mod>>> GetMods(params long[] modIds) => 
-        await Post<CurseResponse<List<Mod>>>("/v1/mods", new GetModsByIdsListRequestBody { ModIds = modIds.ToList() });
+    public async Task<CurseResponse<List<Mod>>> GetMods(List<long> modIds) =>
+        await GetMods(new GetModsByIdsListRequestBody { ModIds = modIds });
+
+    /// <summary>
+    /// Get a list of featured, popular and recently updated mods.
+    /// </summary>
+    /// <param name="body">Match results for a game and exclude specific mods.</param>
+    /// <returns></returns>
+    public async Task<CurseResponse<FeaturedModsResponse>> GetFeaturedMods(GetFeaturedModsRequestBody body) =>
+        await Post<CurseResponse<FeaturedModsResponse>>("/v1/mods/featured", body);
 
     /// <summary>
     /// Get a list of featured, popular and recently updated mods.
@@ -71,10 +85,10 @@ public partial class CurseForge
     /// <param name="gameId">A game unique ID.</param>
     /// <param name="excludedMods">Excluded mods.</param>
     /// <param name="gameVersionTypeId">Filter only mods that contain files tagged with versions of the given <paramref name="gameVersionTypeId"/>.</param>
-    public async Task<CurseResponse<FeaturedModsResponse>> GetFeaturedMods(uint gameId, long[] excludedMods = null, uint? gameVersionTypeId = null) =>
-        await Post<CurseResponse<FeaturedModsResponse>>("/v1/mods/featured", new GetFeaturedModsRequestBody {
+    public async Task<CurseResponse<FeaturedModsResponse>> GetFeaturedMods(uint gameId, List<long> excludedMods = null, uint? gameVersionTypeId = null) =>
+        await GetFeaturedMods(new GetFeaturedModsRequestBody {
             GameId = gameId,
-            ExcludedModIds = excludedMods?.ToList() ?? new List<long>(),
+            ExcludedModIds = excludedMods ?? new List<long>(),
             GameVersionTypeId = gameVersionTypeId
         });
 
