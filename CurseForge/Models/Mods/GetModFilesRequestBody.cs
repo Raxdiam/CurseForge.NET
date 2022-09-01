@@ -7,5 +7,5 @@ namespace CurseForge.Models.Mods;
 /// </summary>
 public class GetModFilesRequestBody
 {
-    public List<long> Fields { get; set; }
+    public List<long> FileIds { get; set; }
 }
