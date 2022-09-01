@@ -50,7 +50,7 @@ public partial class CurseForge
     /// Get a list of files.
     /// </summary>
     /// <param name="fields">List of file IDs to fetch.</param>
-    public async Task<CurseResponse<List<File>>> GetFiles(List<long> fields) => await GetFiles(new GetModFilesRequestBody { Fields = fields });
+    public async Task<CurseResponse<List<File>>> GetFiles(List<long> fileIds) => await GetFiles(new GetModFilesRequestBody { FileIds = fileIds });
 
     /// <summary>
     /// Get the changelog of a file in HTML format.
